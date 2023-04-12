@@ -81,6 +81,55 @@ public class bankingmain {
 					System.out.println("Depsoit successful\n Available Amount is :"+bal);
 					
 				}
+				case 2->{
+						System.out.println("Enter amount to withdraw");
+						int amount=bs.nextInt();
+						System.out.println("Confirm your password");
+						int confmpwd=bs.nextInt();
+						int availamount=dao.withdraw(amount, confmpwd, res);
+						if(availamount==-1) {
+							System.out.println("Low Balance");
+						}
+						else if(availamount==0) {
+							System.out.println("Incorrect password");
+						}
+						else {
+							System.out.println("Withdraw successful \n Available Amount is :"+availamount);
+						}
+				}
+				case 3->{
+						System.out.println("Enter current password");
+						int currentpwd=bs.nextInt();
+						System.out.println("Enter new password");
+						int newpwd=bs.nextInt();
+						
+						int status=dao.changepwd(currentpwd, newpwd, res);
+						if(status==1) {
+							System.out.println("Password changed...");
+						}
+						else {
+							System.out.println("Something went wrong");
+						}
+						
+				}
+				case 4->{
+						System.out.println("Enter password to delete");
+						int pass=bs.nextInt();
+						int status=dao.deleteAccount(pass, res);
+						if(status==1) {
+							System.out.println("Your account is deleted\n Good Bye!....");
+						}
+						else {
+							System.out.println("Something went wrong");
+						}
+						
+						
+						
+						
+						
+				}
+				
+				
 				}
 			
 			

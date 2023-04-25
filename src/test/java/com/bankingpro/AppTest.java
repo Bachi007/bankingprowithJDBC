@@ -1,38 +1,61 @@
 package com.bankingpro;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+import org.junit.Test;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+public class AppTest{
+	
+	bankingdao b1=new bankingdao();
+	
+//	
+//	@Test
+//	//positive test case
+//	public void testlogin() throws Exception {
+//		
+//		b1.dbconnection();
+//		int exp=124;
+//		int res=b1.login("surya", 2505);//res is actual value from login	
+//		assertEquals(exp,res);
+//		
+//	}
+//	
+//	@Test
+//	//negative test case
+//	public void testlogin2() throws Exception {
+//		
+//		b1.dbconnection();
+//		int exp=124;
+//		int res=b1.login("sury", 2505);//res is actual value from login	
+//		assertEquals(exp,res);
+//		
+//	}
+//	
+//	@Test
+//	//negative with wrong password
+//	public void testlogin3() throws Exception {
+//		
+//		b1.dbconnection();
+//		int exp=124;
+//		int res=b1.login("surya", 2501);//res is actual value from login	
+//		assertEquals(exp,res);
+//		
+//	}
+	
+	@Test
+	public void testdeposit()throws Exception{
+		
+		b1.dbconnection();
+		
+		int exp=49000;
+		int availamount=b1.deposit(3000, 101);
+		assertEquals(exp,availamount);
+	}
+	
+	
+	
+	
+	
+	
+	
 }
